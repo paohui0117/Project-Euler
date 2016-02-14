@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Problem 25">
+      <UniqueIdentifier>{8f06e844-fbe5-4042-9a17-286f71ccd9d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Problem 26">
+      <UniqueIdentifier>{782f785c-8adb-41b1-920c-7f95a8e40cfc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Problem 28-29">
+      <UniqueIdentifier>{983e0d0a-bf59-44a5-ab8b-adbdfb6ef3bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Problem 31-40">
+      <UniqueIdentifier>{9e9dbcc6-8054-47ab-b241-553acf6062f7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -24,6 +36,24 @@
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="problem 25\Problem25.h">
+      <Filter>Problem 25</Filter>
+    </ClInclude>
+    <ClInclude Include="problem 26\Problem26.h">
+      <Filter>Problem 26</Filter>
+    </ClInclude>
+    <ClInclude Include="problem 28\Problem28.h">
+      <Filter>Problem 28-29</Filter>
+    </ClInclude>
+    <ClInclude Include="problem 3140\Problem31.h">
+      <Filter>Problem 31-40</Filter>
+    </ClInclude>
+    <ClInclude Include="problem 3140\Problem34_40.h">
+      <Filter>Problem 31-40</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonFun.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -31,6 +61,21 @@
     </ClCompile>
     <ClCompile Include="project_Euler.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="problem 25\Problem25.cpp">
+      <Filter>Problem 25</Filter>
+    </ClCompile>
+    <ClCompile Include="problem 26\Problem26.cpp">
+      <Filter>Problem 26</Filter>
+    </ClCompile>
+    <ClCompile Include="problem 28\Problem28.cpp">
+      <Filter>Problem 28-29</Filter>
+    </ClCompile>
+    <ClCompile Include="problem 3140\Problem31.cpp">
+      <Filter>Problem 31-40</Filter>
+    </ClCompile>
+    <ClCompile Include="problem 3140\Problem34_40.cpp">
+      <Filter>Problem 31-40</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
