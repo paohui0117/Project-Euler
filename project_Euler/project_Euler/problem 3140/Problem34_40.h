@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include "../CommonFun.h"
+#include <set>
 using namespace std;
 //Problem34
 //145 is a curious number, as 1!+ 4!+ 5!= 1 + 24 + 120 = 145.
@@ -90,3 +91,39 @@ private:
 	vector<int>	m_vec;
 };
 
+class CProblem39
+{
+	struct MyStruct
+	{
+		int a;
+		int b;
+		int c;
+		int d;
+	};
+public:
+	CProblem39() {};
+	virtual ~CProblem39() {};
+public:
+	void CalcProblem(int n);
+	string GetString();
+private:
+	bool GetAllRightAngleTriangle(int n);
+private:
+	int			m_nRet;
+	set<int>	m_set;
+	vector<MyStruct>	m_vecTriangle;
+};
+
+class CProblem40
+{
+public:
+	CProblem40() {};
+	virtual ~CProblem40() {};
+public:
+	void CalcProblem(int n);
+	string GetString();
+private:
+	int GetNthDigit(int n); //获取第N个
+private:
+	int			m_nRet;
+};

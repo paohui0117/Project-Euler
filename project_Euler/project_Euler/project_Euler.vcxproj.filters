@@ -25,6 +25,9 @@
     <Filter Include="Problem 31-40">
       <UniqueIdentifier>{9e9dbcc6-8054-47ab-b241-553acf6062f7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Problem 41-50">
+      <UniqueIdentifier>{006d8683-b010-4794-988d-5a13caf1292c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -54,6 +57,12 @@
     <ClInclude Include="CommonFun.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="problem 4150\Problem41_50.h">
+      <Filter>Problem 41-50</Filter>
+    </ClInclude>
+    <ClInclude Include="CProblem.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -76,6 +85,9 @@
     </ClCompile>
     <ClCompile Include="problem 3140\Problem34_40.cpp">
       <Filter>Problem 31-40</Filter>
+    </ClCompile>
+    <ClCompile Include="problem 4150\Problem41_50.cpp">
+      <Filter>Problem 41-50</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

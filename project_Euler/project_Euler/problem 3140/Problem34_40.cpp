@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Problem34_40.h"
 #include <set>
+#include <map>
 
 CProblem34::CProblem34() : n9(362880) //9!
 {
@@ -322,4 +323,129 @@ bool CProblem38::IsConcatenatedProduct(int n)
 		n /= 10;
 	}
 	return true;
+}
+
+void CProblem39::CalcProblem(int n)
+{
+	m_nRet = 0;
+	int ntemp = 0;
+	if (GetAllRightAngleTriangle(n / 2 - 1))
+	{
+		map<int, int> temp;
+		map<int, int>::iterator itemp;
+
+		for (size_t i = 0; i < m_vecTriangle.size(); i++)
+		{
+			itemp = temp.find(m_vecTriangle[i].d);
+			if (itemp == temp.end())
+			{
+				temp.insert(pair<int, int>(m_vecTriangle[i].d, 1));
+				if (ntemp < 1)
+				{
+					ntemp = 1;
+					m_nRet = m_vecTriangle[i].d;
+				}
+			}
+			else
+			{
+				itemp->second++;
+				if (ntemp < itemp->second)
+				{
+					ntemp = itemp->second;
+					m_nRet = m_vecTriangle[i].d;
+				}
+			}
+		}
+	}
+}
+
+string CProblem39::GetString()
+{
+	char a[32] = { 0 };
+	sprintf_s(a, "%d", m_nRet);
+	return a;
+}
+
+bool CProblem39::GetAllRightAngleTriangle(int n)
+{
+	m_set.clear();
+	if (n < 1)
+		return false;
+	for (size_t i = 1; i < n + 1; i++)
+	{
+		m_set.insert(i * i);
+	}
+	set<int>::iterator itor1 = m_set.begin();
+	set<int>::iterator itor2 = itor1;
+	set<int>::iterator itemp;
+	MyStruct temp;
+	while (itor1 != m_set.end())
+	{
+		itor2 = itor1;
+		while (itor2 != m_set.end())
+		{
+			itemp = m_set.find(*itor1 + *itor2);
+			if (itemp != m_set.end())
+			{
+				temp.a = sqrt(*itor1);
+				temp.b = sqrt(*itor2);
+				temp.c = sqrt(*itemp);
+				temp.d = temp.a + temp.b + temp.c;
+				if (temp.d > 1000)
+					break;
+				m_vecTriangle.push_back(temp);
+			}
+			itor2++;
+		}
+		itor1++;
+	}
+	return true;
+}
+
+void CProblem40::CalcProblem(int n)
+{
+	m_nRet = 1;
+	m_nRet *= GetNthDigit(1);
+	m_nRet *= GetNthDigit(10);
+	m_nRet *= GetNthDigit(100);
+	m_nRet *= GetNthDigit(1000);
+	m_nRet *= GetNthDigit(10000);
+	m_nRet *= GetNthDigit(100000);
+	m_nRet *= GetNthDigit(1000000);
+}
+
+string CProblem40::GetString()
+{
+	char a[32] = { 0 };
+	sprintf_s(a, "%d", m_nRet);
+	return a;
+}
+
+int CProblem40::GetNthDigit(int n)
+{
+	if (n < 1)
+		return 0;
+	if (n < 10)
+		return n;
+	int ncur = 9;
+	int nn = 1;
+	int nsize = 9;
+	while (ncur < n)
+	{
+		nn++;
+		nsize = nsize * 10;
+		ncur += nn * nsize;
+	}
+	int nl = nn * nsize - ncur + n;
+	int ni = nl % nn;
+	int nj = nl / nn;
+	if (ni == 0)
+		return (nj - 1) % 10;
+	else
+	{
+		int ntemp = pow(10, nn - 1) + nj;
+		int nnn = nn - ni;
+		ntemp /= pow(10, nnn);
+		return ntemp % 10;
+	}
 }
