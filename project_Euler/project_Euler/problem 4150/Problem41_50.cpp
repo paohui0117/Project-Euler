@@ -209,3 +209,53 @@ bool CProblem45::IsHexagonal(uint64_t n)
 		return false;
 	return true;
 }
+
+void CProblem46::CalcProblem(int n)
+{
+	m_set.clear();
+	m_set.insert(2);
+	uint64_t ncur = 3;
+	bool bFind = false;
+	while (!bFind)
+	{
+		if (Isprime(ncur))
+		{
+			m_set.insert(ncur);
+		}
+		else
+		{
+			if (!IsCorrect(ncur))
+			{
+				bFind = true;
+				m_nRet = ncur;
+				return;
+			}
+		}
+		ncur += 2;
+	}
+}
+
+bool CProblem46::IsCorrect(uint64_t n)
+{
+	set<uint64_t>::iterator itor = m_set.begin();
+	uint64_t temp;
+	uint64_t temp2;
+	while (itor != m_set.end())
+	{
+		if (n < *itor)
+			return false;
+		temp = n - *itor;
+		if (temp % 2 != 0)
+		{
+			itor++;
+			continue;
+		}
+			
+		temp /= 2;
+		temp2 = sqrt(temp);
+		if (temp2 * temp2 == temp)
+			return true;
+		itor++;
+	}
+	return false;
+}

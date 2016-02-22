@@ -54,3 +54,17 @@ private:
 
 };
 
+class CProblem46 : public CProblem
+{
+public:
+	CProblem46() {};
+	virtual ~CProblem46() {};
+public:
+	virtual void CalcProblem(int n) override;
+private:
+	bool IsCorrect(uint64_t n);
+private:
+	set<uint64_t>		m_setPrime;
+	set<uint64_t>		m_set;
+};
+
