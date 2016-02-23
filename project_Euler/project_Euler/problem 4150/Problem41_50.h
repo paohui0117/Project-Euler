@@ -68,3 +68,16 @@ private:
 	set<uint64_t>		m_set;
 };
 
+class CProblem47 : public CProblem
+{
+public:
+	CProblem47() {};
+	virtual ~CProblem47() {};
+public:
+	virtual void CalcProblem(int n) override;
+private:
+	int GetAllPrimeFactors(uint64_t n);
+private:
+	set<uint64_t>		m_set;
+};
+

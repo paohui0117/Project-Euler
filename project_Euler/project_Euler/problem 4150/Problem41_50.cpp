@@ -259,3 +259,50 @@ bool CProblem46::IsCorrect(uint64_t n)
 	}
 	return false;
 }
+
+void CProblem47::CalcProblem(int n)
+{
+	m_nRet = 0;
+	int ncur = 0;
+	uint64_t ntemp = 2;
+	while (ncur < 4)
+	{
+		if (Isprime(ntemp))
+		{
+			ncur = 0;
+			m_set.insert(ntemp);
+		}
+		else
+		{
+			if (GetAllPrimeFactors(ntemp) == 4)
+				ncur++;
+			else
+				ncur = 0;
+		}
+		ntemp++;
+	}
+	m_nRet = ntemp - 4;
+}
+
+int CProblem47::GetAllPrimeFactors(uint64_t n)
+{
+	set<uint64_t> temp;
+	set<uint64_t>::iterator itor = m_set.begin();
+	bool bfinish = false;
+	while (!bfinish)
+	{
+		itor = m_set.begin();
+		while (n % *itor != 0)
+		{
+			itor++;
+		}
+		temp.insert(*itor);
+		n /= *itor;
+		if (m_set.find(n) != m_set.end())
+		{
+			temp.insert(n);
+			bfinish = true;
+		}
+	}
+	return temp.size();
+}
