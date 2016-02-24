@@ -81,3 +81,21 @@ private:
 	set<uint64_t>		m_set;
 };
 
+class CProblem48 : public CProblem
+{
+public:
+	CProblem48() {};
+	virtual ~CProblem48() {};
+public:
+	
+	virtual void CalcProblem(int n) override;
+	virtual string GetString() override;
+private:
+	void GetSelfPower(uint32_t n);
+	void Multiplied(uint32_t n);
+	void Add();
+private:
+	uint32_t	ret[10];
+	uint32_t	cur[10];
+};
+

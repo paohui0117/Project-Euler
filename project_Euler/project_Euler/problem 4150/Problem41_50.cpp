@@ -306,3 +306,64 @@ int CProblem47::GetAllPrimeFactors(uint64_t n)
 	}
 	return temp.size();
 }
+
+void CProblem48::CalcProblem(int n)
+{
+	memset(ret, 0, sizeof(ret));
+	for (size_t i = 1; i < 1001; i++)
+	{
+		GetSelfPower(i);
+		Add();
+	}
+}
+
+string CProblem48::GetString()
+{
+	char p[11] = { 0 };
+	for (size_t i = 0; i < 10; i++)
+	{
+		p[i] = ret[i] + '0';
+	}
+	return p;
+}
+
+void CProblem48::GetSelfPower(uint32_t n)
+{
+	memset(cur, 0, sizeof(cur));
+	int ncur = 0;
+	uint32_t ntemp = n;
+	while (ntemp > 0)
+	{
+		cur[9 - ncur] = ntemp % 10;
+		ntemp /= 10;
+		ncur++;
+	}
+	for (size_t i = 1; i < n; i++)
+	{
+		Multiplied(n);
+	}
+}
+
+void CProblem48::Multiplied(uint32_t n)
+{
+	int ntemp = 0;
+	for (int i = 9; i > -1; i--)
+	{
+		cur[i] *= n;
+		cur[i] += ntemp;
+		ntemp = cur[i] / 10;
+		cur[i] %= 10;
+	}
+}
+
+void CProblem48::Add()
+{
+	int ntemp = 0;
+	for (int i = 9; i > -1; i--)
+	{
+		ret[i] += cur[i];
+		ret[i] += ntemp;
+		ntemp = ret[i] / 10;
+		ret[i] %= 10;
+	}
+}
