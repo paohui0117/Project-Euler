@@ -6,6 +6,8 @@ inline bool Isprime(int n)
 		return false;
 	if (n < 4)
 		return true;
+	if (n & 1 == 0)
+		return true;
 	int nn = sqrt(n);
 	nn++;
 	for (size_t i = 2; i < nn; i++)

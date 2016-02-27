@@ -99,3 +99,18 @@ private:
 	uint32_t	cur[10];
 };
 
+class CProblem49 : public CProblem
+{
+public:
+	CProblem49() {};
+	virtual ~CProblem49() {};
+public:
+	int IsSameDigit(int itor, int itor2, int ntemp);
+	virtual void CalcProblem(int n) override;
+	virtual string GetString() override;
+private:
+private:
+	set<int>	m_prime;
+	string strret;
+};
+

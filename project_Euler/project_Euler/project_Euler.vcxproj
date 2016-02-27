@@ -79,6 +79,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BigInt.h" />
     <ClInclude Include="CommonFun.h" />
     <ClInclude Include="CProblem.h" />
     <ClInclude Include="problem 25\Problem25.h" />
@@ -87,16 +88,19 @@
     <ClInclude Include="problem 3140\Problem31.h" />
     <ClInclude Include="problem 3140\Problem34_40.h" />
     <ClInclude Include="problem 4150\Problem41_50.h" />
+    <ClInclude Include="problem 5160\Problem51_60.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BigInt.cpp" />
     <ClCompile Include="problem 25\Problem25.cpp" />
     <ClCompile Include="problem 26\Problem26.cpp" />
     <ClCompile Include="problem 28\Problem28.cpp" />
     <ClCompile Include="problem 3140\Problem31.cpp" />
     <ClCompile Include="problem 3140\Problem34_40.cpp" />
     <ClCompile Include="problem 4150\Problem41_50.cpp" />
+    <ClCompile Include="problem 5160\Problem51_60.cpp" />
     <ClCompile Include="project_Euler.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

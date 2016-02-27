@@ -367,3 +367,96 @@ void CProblem48::Add()
 		ret[i] %= 10;
 	}
 }
+
+int CProblem49::IsSameDigit(int itor, int itor2, int n3)
+{
+	short size1 = 0;
+	short size2 = 0;
+	short size3 = 0;
+	short temp = 0;
+	short temp2 = 0;
+	short temp3 = 0;
+	int ntemp = 0;
+	while (itor > 0)
+	{
+		ntemp = itor % 10;
+		if (ntemp != 0)
+			temp |= 1 << ntemp;
+		else
+			size1++;
+		itor /= 10;
+	}
+	while (itor2 > 0)
+	{
+		ntemp = itor2 % 10;
+		if (ntemp != 0)
+			temp2 |= 1 << ntemp;
+		else
+			size2++;
+		itor2 /= 10;
+	}
+	while (n3 > 0)
+	{
+		ntemp = n3 % 10;
+		if (ntemp != 0)
+			temp3 |= 1 << ntemp;
+		else
+			size3++;
+		n3 /= 10;
+	}
+	return (temp == temp2 && temp2 == temp3 && size1 == size2 && size2 == size3);
+}
+
+void CProblem49::CalcProblem(int n)
+{
+	m_prime.clear();
+	int namx = 0;
+	for (size_t i = 1000; i < 9999; i++)
+	{
+		if (Isprime(i))
+		{
+			m_prime.insert(i);
+			namx = i;
+		}
+	}
+	set<int>::iterator itor = m_prime.begin();
+	set<int>::iterator itor2;
+	
+	int ntemp = 0;
+	int nret = 0;
+	while (itor != m_prime.end())
+	{
+		itor2 = itor;
+		itor2++;
+		while (itor2 != m_prime.end())
+		{
+			ntemp = *itor2 - *itor;
+			ntemp = *itor2 + ntemp;
+			if (ntemp > namx || ntemp == 8147)
+				break;
+			else if (m_prime.find(ntemp) != m_prime.end())
+			{
+				nret = IsSameDigit(*itor, *itor2, ntemp);
+				if (nret == -1)
+					break;
+				else if (nret == 1)
+				{
+					char str[13];
+					sprintf_s(str, "%d%d%d", *itor, *itor2, ntemp);
+					strret = str;
+					return;
+				}
+				else
+					itor2++;
+			}
+			else
+				itor2++;
+		}
+		itor++;
+	}
+}
+
+string CProblem49::GetString()
+{
+	return strret;
+}
