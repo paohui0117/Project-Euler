@@ -68,3 +68,13 @@ private:
 	uint64_t Reverse(uint64_t n);
 };
 
+class CProblem56 : public CProblem
+{
+public:
+	CProblem56() {};
+	virtual ~CProblem56() {};
+public:
+	virtual void CalcProblem(int n) override;
+private:
+};
+

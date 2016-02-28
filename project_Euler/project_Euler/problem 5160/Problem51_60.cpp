@@ -246,3 +246,20 @@ uint64_t CProblem55::Reverse(uint64_t n)
 	}
 	return temp;
 }
+
+void CProblem56::CalcProblem(int n)
+{
+	m_nRet = 0;
+	uint64_t ncur = 0;
+	for (size_t i = 2; i < 100; i++)
+	{
+		BigInt temp(i);
+		for (size_t j = 1; j < 100; j++)
+		{
+			temp *= i;
+			ncur = temp.GetDigitalSum();
+			if (m_nRet < ncur)
+				m_nRet = ncur;
+		}
+	}
+}
