@@ -46,4 +46,25 @@ public:
 private:
 	vector<BigInt>	m_vecFactorial;
 };
+//不知道花色的具体大小排序
+class CProblem54 : public CProblem
+{
+public:
+	CProblem54() {};
+	virtual ~CProblem54() {};
+public:
+	virtual void CalcProblem(int n) override;
+private:
+};
+//本题是凑巧得出正确结果   需要bigint类型  uint64不能满足
+class CProblem55 : public CProblem
+{
+public:
+	CProblem55() {};
+	virtual ~CProblem55() {};
+public:
+	virtual void CalcProblem(int n) override;
+private:
+	uint64_t Reverse(uint64_t n);
+};
 

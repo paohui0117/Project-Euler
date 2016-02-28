@@ -198,3 +198,51 @@ void CProblem53::CalcProblem(int n)
 		}
 	}
 }
+
+void CProblem54::CalcProblem(int n)
+{
+
+
+}
+
+void CProblem55::CalcProblem(int n)
+{
+	m_nRet = 0;
+	int nCur = 0;
+	bool bFind = false;
+	uint64_t temp;
+	for (size_t i = 1; i < 10001; i++)
+	{
+		uint64_t cur = i;
+		temp = Reverse(cur);
+		bFind = false;
+		nCur = 0;
+		while (!bFind && nCur < 50)
+		{
+			cur += temp;
+			temp = Reverse(cur);
+			if ((i > 9) || (temp > 10))
+			{
+				if (temp == cur)
+				{
+					m_nRet++;
+					break;
+				}
+			}
+			nCur++;
+		}
+	}
+	m_nRet = 10000 - m_nRet;
+}
+
+uint64_t CProblem55::Reverse(uint64_t n)
+{
+	uint64_t temp = 0;
+	while (n > 0)
+	{
+		temp *= 10;
+		temp += n % 10;
+		n /= 10;
+	}
+	return temp;
+}
