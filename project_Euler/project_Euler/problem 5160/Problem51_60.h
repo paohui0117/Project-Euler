@@ -78,3 +78,41 @@ public:
 private:
 };
 
+class CProblem57 : public CProblem
+{
+public:
+	CProblem57() {};
+	virtual ~CProblem57() {};
+public:
+	virtual void CalcProblem(int n) override;
+private:
+	int GetDigits(uint64_t n);
+};
+
+class CProblem58 : public CProblem
+{
+public:
+	CProblem58() {};
+	virtual ~CProblem58() {};
+public:
+	virtual void CalcProblem(int n) override;
+private:
+	
+};
+//没有更好的方法
+//碰巧算出的第一组就是答案  没有严密的数学推理  需要改进
+class CProblem60 : public CProblem
+{
+public:
+	CProblem60() {};
+	virtual ~CProblem60() {};
+public:
+	virtual void CalcProblem(int n) override;
+private:
+	bool IsAllPrime(uint64_t a);
+	uint64_t m_Temp[5];
+	int m_Start[5];
+	int m_ncur;
+	vector<uint64_t> m_vecAll;
+};
+

@@ -10,9 +10,9 @@ public:
 	virtual string GetString()
 	{
 		char a[32] = { 0 };
-		sprintf_s(a, "%d", m_nRet);
+		sprintf_s(a, "%lu", m_nRet);
 		return a;
 	}
 protected:
-	int		m_nRet;
+	uint64_t		m_nRet;
 };

@@ -263,3 +263,151 @@ void CProblem56::CalcProblem(int n)
 		}
 	}
 }
+
+void CProblem57::CalcProblem(int n)
+{
+	m_nRet = 0;
+	BigInt a(1);
+	BigInt b(2);
+	BigInt ntemp(0);
+	for (size_t i = 2; i < 1001; i++)
+	{
+		ntemp = b;
+		b = b * 2;
+		b += a;
+		a = ntemp;
+		ntemp += b;
+		if (ntemp.GetDigitalNo() > b.GetDigitalNo())
+			m_nRet++;
+	}
+
+}
+
+int CProblem57::GetDigits(uint64_t n)
+{
+	int nret = 0;
+	while (n > 0)
+	{
+		nret++;
+		n /= 10;
+	}
+	return nret;
+}
+
+void CProblem58::CalcProblem(int n)
+{
+	m_nRet = 0;
+	uint32_t nSideLength = 1;
+	uint32_t nMax = 1;
+	uint32_t ntemp;
+	int nCur = 0;
+	int nprime = 0;
+	bool bFind = false;
+	while (!bFind)
+	{
+		nCur = 0;
+		nSideLength += 2;
+		nMax = nSideLength * nSideLength;
+		ntemp = nMax - nSideLength + 1;
+		for (; nCur < 3; nCur++)
+		{
+			if (Isprime(ntemp))
+				nprime++;
+			ntemp -= nSideLength - 1;
+		}
+		if (nprime * 10 < nSideLength * 2 - 1)
+		{
+			m_nRet = nSideLength;
+			bFind = true;
+		}
+			
+	}
+}
+
+void CProblem60::CalcProblem(int n)
+{
+	memset(m_Start, 0, sizeof(int) * 5);
+	m_nRet = 0;
+	uint64_t ncur = 3;
+	int nsize = 0;
+	while (nsize < 2000)
+	{
+		if (Isprime(ncur))
+		{
+			m_vecAll.push_back(ncur);
+			ncur++;
+			nsize++;
+		}
+		else
+			ncur++;
+	}
+	m_ncur = 0;
+	bool bFind = false;
+	while (m_ncur < 5 && m_Start[0] < m_vecAll.size() - 5)
+	{
+		bFind = false;
+		for (size_t i = m_Start[m_ncur]; i < m_vecAll.size(); i++)
+		{
+			if (IsAllPrime(m_vecAll[i]))
+			{
+				m_Temp[m_ncur] = m_vecAll[i];
+				m_Start[m_ncur] = i;
+				if (m_ncur < 4)
+					m_Start[m_ncur + 1] = i + 1;
+				m_ncur++;
+				bFind = true;
+				break;
+			}
+			
+		}
+		if (!bFind)
+		{
+			m_ncur--;
+			if (m_ncur < 0)
+				m_ncur = 0;
+			m_Start[m_ncur]++;
+		}
+		//
+		if (m_ncur == 5)
+		{
+			m_ncur = 0;
+			uint64_t temp = m_Temp[0] + m_Temp[1] + m_Temp[2] + m_Temp[3] + m_Temp[4];
+			if (m_nRet == 0 || m_nRet > temp)
+				m_nRet = temp;
+			m_Start[0]++;
+		}
+		
+	}
+}
+
+bool CProblem60::IsAllPrime(uint64_t a)
+{
+	bool bret = true;
+	uint64_t ntemp1, ntemp2;
+	int n1, n2;
+	n2 = 1;
+	ntemp2 = a;
+	while (ntemp2 != 0)
+	{
+		n2 *= 10;
+		ntemp2 /= 10;
+	}
+	ntemp2 = a;
+	for (size_t i = 0; i < m_ncur; i++)
+	{
+		n1 = 1;
+		ntemp1 = m_Temp[i];
+		while (ntemp1 != 0)
+		{
+			n1 *= 10;
+			ntemp1 /= 10;
+		}
+		ntemp1 = m_Temp[i];
+		
+		if (!Isprime(ntemp1 * n2 + ntemp2))
+			return false;
+		if (!Isprime(ntemp2 * n1 + ntemp1))
+			return false;
+	}
+	return bret;
+}
