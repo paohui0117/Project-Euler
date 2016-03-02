@@ -31,6 +31,9 @@
     <Filter Include="Problem 51-60">
       <UniqueIdentifier>{21e880b1-1814-4d0e-9696-5b12bf0481ef}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Problem 61-70">
+      <UniqueIdentifier>{9232f1ce-648d-4efe-b5f2-50b5ba739154}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -72,6 +75,9 @@
     <ClInclude Include="BigInt.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="problem 6170\Problem61_70.h">
+      <Filter>Problem 61-70</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -103,6 +109,9 @@
     </ClCompile>
     <ClCompile Include="BigInt.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="problem 6170\Problem61_70.cpp">
+      <Filter>Problem 61-70</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
