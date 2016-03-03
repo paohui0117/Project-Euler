@@ -24,4 +24,19 @@ private:
 	set<uint32_t> m_set[6];
 	uint32_t m_ret[6];
 };
+//Ì«Âý  ÒªÓÅ»¯
+class CProblem62 : public CProblem
+{
+public:
+	CProblem62() {};
+	virtual ~CProblem62() {};
+public:
+	virtual void CalcProblem(int n) override;
+private:
+	bool SameDigits(uint64_t	n);
+	void GetAllDigits(uint64_t n);
+	char					m_Digitals[10];
+	uint64_t				m_nMax;
+	uint64_t				m_nMin;
+};
 

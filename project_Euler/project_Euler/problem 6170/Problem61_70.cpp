@@ -6,6 +6,7 @@
 
 void CProblem61::CalcProblem(int nn)
 {
+	//·ÇµÝ¹é
 	m_nRet = 0;
 	uint32_t nCur = 0;
 	uint32_t nLast = 0;
@@ -166,4 +167,76 @@ bool CProblem61::IsOctagonal(uint64_t n)
 	if ((nn + 1) % 3 != 0)
 		return false;
 	return true;
+}
+
+void CProblem62::CalcProblem(int n)
+{
+	m_nRet = 0;
+	bool bFind = false;
+	uint64_t nCur = 405;
+	uint64_t nTemp = 0;
+	int nCurFind = 0;
+	while (!bFind)
+	{
+		nCur++;
+		nTemp = nCur * nCur * nCur;
+		GetAllDigits(nTemp);
+		uint64_t ntry = 0;
+		nCurFind = 0;
+		for (uint64_t i = nCur + 1; i < nCur * 3; i++)
+		{
+			ntry = i * i * i;
+			if (ntry > m_nMax)
+				break;
+			if (SameDigits(ntry))
+			{
+				nCurFind++;
+			}
+			if (nCurFind == 4)
+			{
+				m_nRet = nTemp;
+				return;
+			}
+		}
+	}
+}
+
+bool CProblem62::SameDigits(uint64_t n)
+{
+	
+	char templist[10];
+	memcpy(templist, m_Digitals, 10);
+	int ntemp = 0;
+	map<int, int>::iterator itor;
+	while (n > 0)
+	{
+		ntemp = n % 10;
+		n /= 10;
+		if (templist[ntemp] <= 0)
+			return false;
+		else
+		{
+			templist[ntemp]--;
+		}
+	}
+	return true;
+}
+
+void CProblem62::GetAllDigits(uint64_t n)
+{
+	memset(m_Digitals, 0, sizeof(char) * 10);
+	int ntemp = 0;
+	int nSize = 0;
+	uint64_t nMax = 0;
+	m_nMax = 1;
+	map<int, int>::iterator itor;
+	while (n > 0)
+	{
+		ntemp = n % 10;
+		m_Digitals[ntemp]++;
+		m_nMax *= 10;
+		n /= 10;
+		nSize++;
+	}
+	m_nMin = m_nMax / 10;
 }
