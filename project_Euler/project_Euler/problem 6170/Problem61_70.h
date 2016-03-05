@@ -40,3 +40,14 @@ private:
 	uint64_t				m_nMin;
 };
 
+
+class CProblem63 : public CProblem
+{
+public:
+	CProblem63() {};
+	virtual ~CProblem63() {};
+public:
+	virtual void CalcProblem(int n) override;
+
+};
+

@@ -240,3 +240,30 @@ void CProblem62::GetAllDigits(uint64_t n)
 	}
 	m_nMin = m_nMax / 10;
 }
+
+void CProblem63::CalcProblem(int n)
+{
+	m_nRet = 0;
+	bool bFine = false;
+	//uint64_t ncur = 0;
+	int ntemp = 1;
+	int ncurDigit;
+	BigInt ncur(1);
+	for (size_t i = 1; i < 10; i++)
+	{
+		bFine = false;
+		ntemp = 1;
+		ncur = 1;
+		while (!bFine)
+		{
+			ncur *= i;
+			ncurDigit = ncur.GetDigitalNo();
+			if (ntemp == ncurDigit)
+				m_nRet++;
+			else if (ntemp > ncurDigit)
+				break;
+			ntemp++;
+		}
+	}
+}
+
