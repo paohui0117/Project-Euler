@@ -51,3 +51,16 @@ public:
 
 };
 
+class CProblem64 : public CProblem
+{
+public:
+	CProblem64() {};
+	virtual ~CProblem64() {};
+public:
+	virtual void CalcProblem(int n) override;
+private:
+	int GePteriod(int n);
+private:
+	int		m_period[100];
+};
+

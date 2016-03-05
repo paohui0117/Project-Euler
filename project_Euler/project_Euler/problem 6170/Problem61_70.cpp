@@ -267,3 +267,34 @@ void CProblem63::CalcProblem(int n)
 	}
 }
 
+void CProblem64::CalcProblem(int n)
+{
+	m_nRet = 0;
+	for (size_t i = 2; i < 10001; i++)
+	{
+		if (GePteriod(i) & 1 == 1)
+			m_nRet++;
+	}
+}
+
+int CProblem64::GePteriod(int n)
+{
+	if (n < 1)
+		return 0;
+	int	ncurPos = 0;
+	int m = 0;
+	int d = 1;
+	int a = sqrt(n);
+	if (a *a == n)
+		return 0;
+	int nTempA = a;
+	int ntemp = a * 2;
+	while (nTempA != ntemp)
+	{
+		m = nTempA * d - m;
+		d = (n - m *m) / d;
+		nTempA = (a + m) / d;
+		ncurPos++;
+	}
+	return ncurPos;
+}
