@@ -61,6 +61,16 @@ public:
 private:
 	int GePteriod(int n);
 private:
-	int		m_period[100];
+};
+
+class CProblem65 : public CProblem
+{
+public:
+	CProblem65() {};
+	virtual ~CProblem65() {};
+public:
+	virtual void CalcProblem(int n) override;
+private:
+
 };
 

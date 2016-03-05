@@ -298,3 +298,32 @@ int CProblem64::GePteriod(int n)
 	}
 	return ncurPos;
 }
+
+void CProblem65::CalcProblem(int nn)
+{
+	int ncur = (99 / 3) * 2;
+	BigInt n(0);
+	BigInt m(1);
+	BigInt temp(0);
+	for (size_t i = 0; i < 33; i++)
+	{
+		//1
+		temp = m;
+		m += n;
+		n = temp;
+		//2x
+		temp = m;
+		m = m * ncur;
+		m += n;
+		n = temp;
+		//1
+		temp = m;
+		m += n;
+		n = temp;
+		ncur -= 2;
+	}
+	temp = m * 2;
+	temp += n;
+	m_nRet = temp.GetDigitalSum();
+	
+}
