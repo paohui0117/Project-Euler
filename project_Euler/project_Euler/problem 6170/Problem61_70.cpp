@@ -325,5 +325,89 @@ void CProblem65::CalcProblem(int nn)
 	temp = m * 2;
 	temp += n;
 	m_nRet = temp.GetDigitalSum();
-	
+}
+
+CProblem66::CProblem66():m_cur(0)
+{
+}
+
+void CProblem66::CalcProblem(int n)
+{
+	m_nRet = 0;
+	uint32_t nTemp = 2;
+	uint32_t nCur = 2;
+	while (nTemp < 1001)
+	{
+		nTemp = nCur * nCur;
+		m_vecSquare.push_back(nTemp);
+		nCur++;
+	}
+	nCur = 0;
+	for (size_t i = 2; i < 1001; i++)
+	{
+		if (i == m_vecSquare[nCur])
+		{
+			nCur++;
+			continue;
+		}
+		GetFractions(i);
+	}
+}
+
+void CProblem66::GetFractions(int n)
+{
+	uint32_t a0 = sqrt(n);
+	uint32_t m = 0;
+	uint32_t d = 1;
+	uint32_t ntempA = a0;
+	uint64_t ntemp = a0 * 2;
+	m_vecFractions.clear();
+	while (ntempA != ntemp)
+	{
+		m = ntempA * d - m;
+		d = (n - m *m) / d;
+		ntempA = (a0 + m) / d;
+		m_vecFractions.push_back(ntempA);
+	}
+	BigInt x(1);
+	BigInt y(1);
+	BigInt x2(1);
+	BigInt y2(1);
+	int ncur = 1;
+	bool bFind = false;
+	int nCurTemp = 0;
+	int nSize = m_vecFractions.size();
+	BigInt h0(a0);
+	BigInt k0(1);
+	BigInt h1 (m_vecFractions[0] * a0 + 1);
+	BigInt k1 (m_vecFractions[0]);
+	if (h1*h1 == k1*k1*n + 1)
+	{
+		x = h1;
+		bFind = true;
+	}
+	while (!bFind)
+	{
+		nCurTemp = ncur % nSize;
+		ncur++;
+		x = h1 * m_vecFractions[nCurTemp] + h0;
+		y = k1 * m_vecFractions[nCurTemp] + k0;
+		h0 = h1;
+		h1 = x;
+		k0 = k1;
+		k1 = y;
+		x2 = x;
+		y2 = y;
+		x2 *= x;
+		y2 *= y;
+		y2 *= n;
+		y2 += 1;
+		bFind = x2 == y2;
+	}
+	if (x > m_cur )
+	{
+		m_cur = x;
+		m_nRet = n;
+	}
+		
 }

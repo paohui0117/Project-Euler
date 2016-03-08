@@ -74,3 +74,17 @@ private:
 
 };
 
+class CProblem66 : public CProblem
+{
+public:
+	CProblem66();
+	virtual ~CProblem66() {};
+public:
+	virtual void CalcProblem(int n) override;
+private:
+	void GetFractions(int n);
+	vector<uint32_t>	m_vecSquare;
+	vector<uint8_t>		m_vecFractions;
+	BigInt				m_cur;
+};
+
