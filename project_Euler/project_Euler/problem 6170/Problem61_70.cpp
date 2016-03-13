@@ -411,3 +411,122 @@ void CProblem66::GetFractions(int n)
 	}
 		
 }
+
+void CProblem69::CalcProblem(int n)
+{
+	m_nRet = 1;
+	int nCur = 1;
+	bool b2, b3, b5;
+	for (size_t i = 2; i < 1000001; i ++)
+	{
+		if (Isprime(i))
+		{
+			nCur *= i;
+			if (nCur < 1000001)
+			{
+				m_nRet = nCur;
+			}
+			else
+				return;
+		}
+	}
+
+}
+
+/*void CProblem70::CalcProblem(int n)
+{
+	m_all.clear();
+	uint64_t Up = 1;
+	uint64_t Down = 1;
+	uint64_t temp = 0;
+	uint64_t cur = 500000;
+	bool bfind = false;
+	uint64_t DownLimit = 0;
+	uint64_t UpLimit = 0;
+	bool bFine = true;
+	uint64_t ntemp1, ntemp2;
+	for (uint64_t i = 2; i < 10000000; i++)
+	{
+		if (i < 5000000 && Isprime(i))
+			m_all.insert(i);
+		else
+		{
+			Up = 1;
+			Down = 1;
+			temp = i / 2 + 1;
+			bFine = true;
+			int nn = 0;
+			ntemp1 = ntemp2 = 0;
+			for (set<uint32_t>::iterator itor  = m_all.begin(); itor != m_all.end(); itor++)
+			{
+				if (i % *itor == 0 && *itor < temp)
+				{
+					nn++;
+					//if (nn == 1)
+					//{
+					//	ntemp1 = *itor;
+					//}
+					if (nn > 2)
+					{
+						//uint64_t nntemp = i;
+						//ntemp2 = *itor;
+						//while (nntemp % ntemp1 == 0 && nntemp != 1)
+						//{
+						//	nntemp /= ntemp1;
+						//}
+						//while (nntemp % ntemp2 == 0 && nntemp != 1)
+						//{
+						//	nntemp /= ntemp2;
+						//}
+						//if (nntemp != 1)
+						//{
+						//	bFine = false;
+						//	break;
+						//}
+						break;
+					}
+					Down *= *itor;
+					Up *= (*itor - 1);
+					if (bfind && nn == 2)
+					{
+						if (Up * DownLimit < Down * UpLimit)
+						{
+							bFine = false;
+							break;
+						}
+							
+					}
+				}
+			}
+			temp = i * Up / Down;
+			if (bFine && SameNum(temp, i))
+			{
+				if (!bfind)
+				{
+					bfind = true;
+				}
+				DownLimit = Down;
+				UpLimit = Up;
+				m_nRet = i;
+			}
+		}
+	}
+}
+
+bool CProblem70::SameNum(uint32_t a, uint32_t b)
+{
+	int num[10] = {0};
+	while (a > 0)
+	{
+		num[a % 10]++;
+		a /= 10;
+	}
+	while (b > 0)
+	{
+		num[b % 10]--;
+		if (num[b % 10] < 0)
+			return false;
+		b /= 10;
+	}
+	return true;
+}*/

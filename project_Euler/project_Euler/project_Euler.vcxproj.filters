@@ -34,6 +34,9 @@
     <Filter Include="Problem 61-70">
       <UniqueIdentifier>{9232f1ce-648d-4efe-b5f2-50b5ba739154}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Problem 71-80">
+      <UniqueIdentifier>{9b27b078-f506-4fb5-9361-c4cba77eaea5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -78,6 +81,9 @@
     <ClInclude Include="problem 6170\Problem61_70.h">
       <Filter>Problem 61-70</Filter>
     </ClInclude>
+    <ClInclude Include="problem 7180\Problem71_80.h">
+      <Filter>Problem 71-80</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -112,6 +118,9 @@
     </ClCompile>
     <ClCompile Include="problem 6170\Problem61_70.cpp">
       <Filter>Problem 61-70</Filter>
+    </ClCompile>
+    <ClCompile Include="problem 7180\Problem71_80.cpp">
+      <Filter>Problem 71-80</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
