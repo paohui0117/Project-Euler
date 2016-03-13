@@ -17,3 +17,15 @@ private:
 
 
 };
+
+class CProblem72 : public CProblem
+{
+public:
+	CProblem72() {};
+	virtual ~CProblem72() {};
+public:
+	virtual void CalcProblem(int n) override;
+private:
+
+
+};

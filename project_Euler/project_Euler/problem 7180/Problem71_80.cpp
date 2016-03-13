@@ -30,3 +30,24 @@ void CProblem71::CalcProblem(int n)
 	}
 	m_nRet = nreta;
 }
+
+void CProblem72::CalcProblem(int n)
+{
+	uint64_t *pall = new uint64_t[1000001];
+	m_nRet = 0;
+	for (size_t i = 0; i < 1000001; i++)
+	{
+		pall[i] = i;
+	}
+	for (size_t i = 2; i < 1000001; i++)
+	{
+		if (pall[i] == i)
+		{
+			for (size_t j = 0; j < 1000001; j+=i)
+			{
+				pall[j] = pall[j] / i * (i - 1);
+			}
+		}
+		m_nRet += pall[i];
+	}
+}
