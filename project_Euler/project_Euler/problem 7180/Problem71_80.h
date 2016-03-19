@@ -29,3 +29,28 @@ private:
 
 
 };
+//法雷数列
+class CProblem73 : public CProblem
+{
+public:
+	CProblem73() {};
+	virtual ~CProblem73() {};
+public:
+	virtual void CalcProblem(int n) override;
+private:
+};
+
+//太慢  需优化
+class CProblem74 : public CProblem
+{
+public:
+	CProblem74() {};
+	virtual ~CProblem74() {};
+public:
+	bool GetTerms(uint32_t big_int);
+	virtual void CalcProblem(int n) override;
+private:
+	vector<uint32_t>	m_vec;
+	set<uint64_t>	m_setTemp;
+	vector<uint32_t>	m_All;
+};
