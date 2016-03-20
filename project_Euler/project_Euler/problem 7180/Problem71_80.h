@@ -54,3 +54,16 @@ private:
 	set<uint64_t>	m_setTemp;
 	vector<uint32_t>	m_All;
 };
+
+
+class CProblem75 : public CProblem
+{
+public:
+	CProblem75() {};
+	virtual ~CProblem75() {};
+public:
+	virtual void CalcProblem(int n) override;
+private:
+	map<uint32_t, char>	m_map;
+	int Check(uint32_t a, uint32_t b);
+};

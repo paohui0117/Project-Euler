@@ -149,3 +149,68 @@ void CProblem74::CalcProblem(int n)
 		m_setTemp.clear();
 	}
 }
+
+void CProblem75::CalcProblem(int n)
+{
+	m_nRet = 0;
+	uint32_t a, b, c;
+	uint32_t mm;
+	uint32_t nn;
+	uint32_t cur;
+	map<uint32_t, char>::iterator itor;
+	int ntempp;
+	for (size_t m = 2; m < sqrt(1500000 / 2); m++)
+	{
+		mm = m * m;
+		for (size_t n = 1; n < m; n++)
+		{
+			if (Check(m, n) != 1 ||  (m - n) % 2 == 0)
+				continue;
+			nn = n * n;
+			a = mm - nn;
+			b = 2 * m * n;
+			c = mm + nn;
+			cur = a + b + c;
+			uint32_t temp = cur;
+			while (temp < 1500000)
+			{
+				itor = m_map.find(temp);
+				if (itor == m_map.end())
+				{
+					m_nRet++;
+					m_map.insert(pair<uint32_t, char>(temp, 0));
+				}
+				else
+				{
+					if (itor->second == 0)
+					{
+						m_nRet--;
+						itor->second = 1;
+					}
+				}
+				temp += cur;
+
+			}
+		}
+	}
+}
+
+int CProblem75::Check(uint32_t a, uint32_t b)
+{
+	uint32_t max, min;
+	if (a > b)
+	{
+		max = a;
+		min = b;
+	}
+	else
+	{
+		max = b;
+		min = a;
+	}
+	for (size_t i = min; i > 0; i--)
+	{
+		if (max % i == 0 && min % i == 0)
+			return i;
+	}
+}
