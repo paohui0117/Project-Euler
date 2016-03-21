@@ -67,3 +67,25 @@ private:
 	map<uint32_t, char>	m_map;
 	int Check(uint32_t a, uint32_t b);
 };
+
+class CProblem76 : public CProblem
+{
+public:
+	CProblem76() {};
+	virtual ~CProblem76() {};
+public:
+	virtual void CalcProblem(int n) override;
+private:
+	
+};
+//¶¯Ì¬¹æ»®
+class CProblem77 : public CProblem
+{
+public:
+	CProblem77() {};
+	virtual ~CProblem77() {};
+public:
+	virtual void CalcProblem(int n) override;
+private:
+
+};

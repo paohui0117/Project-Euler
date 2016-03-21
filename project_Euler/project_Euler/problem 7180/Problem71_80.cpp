@@ -214,3 +214,75 @@ int CProblem75::Check(uint32_t a, uint32_t b)
 			return i;
 	}
 }
+
+void CProblem76::CalcProblem(int n)
+{
+	uint32_t ret[101][101] = { 0 };
+	ret[1][1] = 1;
+	uint32_t ntempi, ntempj;
+	for (size_t i = 2; i < 101; i++)
+	{
+		for (size_t j = 1; j < i + 1; j++)
+		{
+			if (i == j)
+				ret[i][j] = 1;
+			else
+			{
+				ntempi = i - j;
+				ntempj = ntempi > j ? j : ntempi;
+				for (size_t m = 1; m < ntempj + 1; m++)
+				{
+					ret[i][j] += ret[ntempi][m];
+				}
+			}
+		}
+	}
+	for (size_t i = 1; i < 100; i++)
+	{
+		m_nRet += ret[100][i];
+	}
+}
+
+void CProblem77::CalcProblem(int n)
+{
+	uint32_t nCur = 2;
+	uint32_t nAll = 0;
+	vector<uint32_t>	allPrimer;
+	allPrimer.push_back(2);
+	map<uint32_t, vector<uint32_t>> allData;
+	allData.insert(pair<uint32_t, vector<uint32_t>>(nCur, vector<uint32_t>(3, 0)));
+	allData[2][2] = 1;
+	uint32_t ntempi, ntempj;
+	while (true)
+	{
+		nCur++;
+		nAll = 0;
+		allData.insert(pair<uint32_t, vector<uint32_t>>(nCur, vector<uint32_t>(nCur + 1, 0)));
+		
+		for (size_t i = 0; i < allPrimer.size(); i++)
+		{
+			ntempi = nCur - allPrimer[i];
+			if (ntempi == 1)
+				break;
+			else
+			{
+				ntempj = ntempi > allPrimer[i] ? allPrimer[i] : ntempi;
+				for (size_t j = 2; j < ntempj + 1; j++)
+				{
+					allData[nCur][allPrimer[i]] += allData[ntempi][j];
+					nAll += allData[ntempi][j];
+				}
+			}
+		}
+		if (Isprime(nCur))
+		{
+			allData[nCur][nCur] = 1;
+			allPrimer.push_back(nCur);
+		}
+		if (nAll > 5000)
+		{
+			m_nRet = nCur;
+			break;
+		}
+	}
+} 

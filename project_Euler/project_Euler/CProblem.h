@@ -3,7 +3,7 @@ using namespace std;
 class CProblem
 {
 public:
-	CProblem() {};
+	CProblem() { m_nRet = 0; };
 	virtual ~CProblem() {};
 public:
 	virtual void CalcProblem(int n) = 0;
