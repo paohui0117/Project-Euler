@@ -285,4 +285,43 @@ void CProblem77::CalcProblem(int n)
 			break;
 		}
 	}
+}
+
+void CProblem78::CalcProblem(int n)
+{
+	uint32_t nCur = 1;
+	uint32_t nAll = 0;
+	vector<vector<uint32_t>> allData;
+	allData.push_back(vector<uint32_t>(0));
+	allData.push_back(vector<uint32_t>(2));
+	allData[1][1] = 1;
+	uint32_t ntempi, ntempj;
+	while (true)
+	{
+		nCur++;
+		nAll = 0;
+		allData.push_back(vector<uint32_t>(nCur + 1, 0));
+		allData[nCur][1] = 1;
+		nAll += 1;
+		for (size_t i = 2; i < nCur; i++)
+		{
+			ntempi = nCur - i;
+			
+			ntempj = ntempi > i ? i : ntempi;
+			for (size_t j = 1; j < ntempj + 1; j++)
+			{
+				allData[nCur][i] += allData[ntempi][j];
+				nAll += allData[ntempi][j];
+			}
+			allData[nCur][i] %= 1000000;
+			nAll %= 1000000;
+		}
+		allData[nCur][nCur] = 1;
+		nAll += 1;
+		if (nAll == 1000000)
+		{
+			m_nRet = nCur;
+			break;
+		}
+	}
 } 

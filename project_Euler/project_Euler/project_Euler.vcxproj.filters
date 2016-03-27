@@ -123,4 +123,9 @@
       <Filter>Problem 71-80</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="problem 7180\problem7880.py">
+      <Filter>Problem 71-80</Filter>
+    </None>
+  </ItemGroup>
 </Project>

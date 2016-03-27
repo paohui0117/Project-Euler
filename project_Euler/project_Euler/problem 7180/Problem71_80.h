@@ -89,3 +89,15 @@ public:
 private:
 
 };
+
+//¶¯Ì¬¹æ»®
+class CProblem78 : public CProblem
+{
+public:
+	CProblem78() {};
+	virtual ~CProblem78() {};
+public:
+	virtual void CalcProblem(int n) override;
+private:
+
+};
