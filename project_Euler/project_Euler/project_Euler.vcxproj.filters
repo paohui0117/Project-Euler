@@ -40,6 +40,9 @@
     <Filter Include="problem 8190">
       <UniqueIdentifier>{cd9b929f-c4e0-4941-904d-0e6d24bf4102}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Problem91100">
+      <UniqueIdentifier>{14fc9d05-f2f2-4dfc-9d38-1214d0be2a40}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -132,6 +135,9 @@
     </None>
     <None Include="problem 8190\problem8190.py">
       <Filter>problem 8190</Filter>
+    </None>
+    <None Include="problem91100\problem91_100.py">
+      <Filter>Problem91100</Filter>
     </None>
   </ItemGroup>
 </Project>

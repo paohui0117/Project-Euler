@@ -114,6 +114,7 @@
   <ItemGroup>
     <None Include="problem 7180\problem7880.py" />
     <None Include="problem 8190\problem8190.py" />
+    <None Include="problem91100\problem91_100.py" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
